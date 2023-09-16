@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13.4)
-project(cxx-zygisk)
+project(libcxx)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS off)
@@ -92,4 +92,4 @@ include_directories(${libcxx_includes})
 include_directories(${libcxxabi_includes})
 set(CMAKE_CXX_FLAGS "${libcxx_cxxflags} ${libcxxabi_cppflags} -ffunction-sections -fdata-sections ${CMAKE_CXX_FLAGS}")
 
-add_library(cxx-zygisk STATIC ${libcxx_sources} ${libcxxabi_src_files})
+add_library(cxx STATIC ${libcxx_sources} ${libcxxabi_src_files})
