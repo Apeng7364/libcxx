@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.13.4)
-project(libcxx)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS off)
@@ -57,7 +56,7 @@ set(libcxx_sources
     src/verbose_abort.cpp
 )
 
-set(libcxx_cxxflags "-std=c++20 -fvisibility-global-new-delete-hidden -fvisibility=hidden -fvisibility-inlines-hidden -DLIBCXX_BUILDING_LIBCXXABI -D_LIBCPP_NO_EXCEPTIONS -D_LIBCPP_NO_RTTI -D_LIBCPP_BUILDING_LIBRARY -D_LIBCPP_DISABLE_VISIBILITY_ANNOTATIONS -D__STDC_FORMAT_MACROS")
+set(libcxx_cxxflags "-fvisibility-global-new-delete-hidden -DLIBCXX_BUILDING_LIBCXXABI -D_LIBCPP_NO_EXCEPTIONS -D_LIBCPP_NO_RTTI -D_LIBCPP_BUILDING_LIBRARY -D_LIBCPP_DISABLE_VISIBILITY_ANNOTATIONS -D__STDC_FORMAT_MACROS")
 
 set(libcxxabi_src_files
     src/abi/abort_message.cpp
@@ -90,6 +89,6 @@ set(libcxxabi_cppflags "-D_LIBCXXABI_NO_EXCEPTIONS -Wno-macro-redefined -Wno-unk
 
 include_directories(${libcxx_includes})
 include_directories(${libcxxabi_includes})
-set(CMAKE_CXX_FLAGS "${libcxx_cxxflags} ${libcxxabi_cppflags} -ffunction-sections -fdata-sections ${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_FLAGS "${libcxx_cxxflags} ${libcxxabi_cppflags} ${CMAKE_CXX_FLAGS}")
 
 add_library(cxx STATIC ${libcxx_sources} ${libcxxabi_src_files})
