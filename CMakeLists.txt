@@ -7,8 +7,8 @@ set(CMAKE_VISIBILITY_INLINES_HIDDEN on)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
 set(libcxx_includes
-    ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_SOURCE_DIR}/src
+    include
+    src
 )
 
 set(libcxx_sources
